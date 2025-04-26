@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slīdošās bildes</title>
+    <style>
+ 
+ @font-face {
+    font-family: 'Espoir-serif';
+    src: url(Fonts/Espoir\ Serif.otf);
+ }
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+ 
+        body {
+            background-color: rgb(220, 220, 220);
+        }
+       
+ 
+        .container_slid {
+            background-color: #233660;
+            height: 320px;
+            width: 80vw;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            margin-top: 1vw ;
+        }
+ 
+        .web {
+            background-color: #ffffff;
+            height: 2000px;
+            width: 80vw;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            padding-top: 200px;
+        }
+ 
+        @media (max-width: 1000px) {
+            .container_slid {
+        width: 100%;
+        height: 210px;
+        margin: 0;
+        margin-top: 1vw ;
+        border-radius: 0;
+    }}
+ 
+        @media (max-width: 1000px) {
+            .web {
+        width: 100%;
+        height: clamp(2000px, auto, 350px);
+        margin: 0;
+        border-radius: 0;
+    }}
+ 
+        /* Slīdošo attēlu konteiners */
+        .slider {
+            display: flex;
+            align-items: center;
+            gap: 2vw;
+            position: absolute;
+            width: max-content;
+            height: 180px;
+            animation: slideAnimation 25s linear infinite;
+            animation-play-state: running;
+        }
+ 
+        /* Slīdošie attēli */
+        .slide {
+            width: 250px;
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            margin-top: 140px;
+            flex-shrink: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+ 
+        @media (max-width: 1000px) {
+            .slide {
+            width: 160px;
+            height: 160px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            margin-top: 16px;
+            flex-shrink: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+    }}
+ 
+    @media (max-width: 1000px) {
+    .slider {
+            display: flex;
+            align-items: center;
+            gap: 2vw;
+            position: absolute;
+            width: max-content;
+            height: 195px;
+            animation: slideAnimation 25s linear infinite;
+            animation-play-state: running;
+        }}
+ 
+        /* Animācija */
+        @keyframes slideAnimation {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(calc(-50% - 15px)); /* Pārvietojas par pusi, lai veidotos nepārtraukta kustība */
+            }}
+ 
+        /* Animācija pauze */
+        .slider:hover {
+            animation-play-state: paused;
+        }
+ 
+        .slide:hover {
+            opacity: 0.4;
+        }
+ 
+        .header {
+            background-color:  #cdd3df;
+            padding: 1vw;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            position: relative;
+            z-index: 100;
+            transition: all 0.3s ease; /* smooth transition */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+ 
+        .header.scrolled {
+            padding: 0.5vw 1vw; /* smaller padding when scrolled */
+        }
+ 
+            .web, .container_slid {
+            position: relative;
+            z-index: 1; /* This keeps them behind the header */
+        }
+ 
+       .Unico_L {
+            display: block;
+            height: 150px;
+            transition: all 0.3s ease;
+            align-items: center;
+       }
+ 
+       .header.scrolled .Unico_L {
+            height: 80px; /* shrink the logo */
+        }
+ 
+       @media (max-width: 1000px) {
+            .Unico_L {
+        display: block;
+        height: 100px;
+    }}
+ 
+            .desrow {
+        position: relative;
+        width: 100vw;
+        height: 60%;
+    }
+ 
+            .designer1 {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        background-color: #818181;
+        height: 350px;
+        width: 350px;
+        border-radius: 50%;
+    }
+ 
+            .designer2 {
+        position: absolute;
+        top: 260px;
+        left: 260px;
+        background-color: #b8b8b8;
+        height: 270px;
+        width: 270px;
+        border-radius: 50%;
+    }
+ 
+    @media (max-width: 1300px) {
+            .designer1 {
+        top: 20px;
+        left: 60px;
+        height: 310px;
+        width: 310px;
+    }}
+
+    @media (max-width: 1200px) {
+            .designer1 {
+        top: 20px;
+        left: 20px;
+        height: 310px;
+        width: 310px;
+    }}
+ 
+    @media (max-width: 1300px) {
+            .designer2 {
+        top: 200px;
+        left: 260px;
+        height: 230px;
+        width: 230px;
+    }}
+
+    @media (max-width: 1200px) {
+            .designer2 {
+        top: 200px;
+        left: 200px;
+        height: 230px;
+        width: 230px;
+    }}
+ 
+    .destext1 {
+        position: absolute;
+        color: rgb(0, 0, 0);
+        border-radius: 10px;
+        font-size: 20px;
+        width: 44vw;
+        left: 34vw;
+        min-width: 350px;
+        margin-top: 110px;
+    }
+
+    .destext2 {
+        position: absolute;
+        color: rgb(0, 0, 0);
+        border-radius: 10px;
+        font-size: 20px;
+        width: 34vw;
+        left: 34vw;
+        margin-left: 120px;
+        min-width: 300px;
+        margin-top: 240px;
+    }
+
+    @media (max-width: 1300px) {
+        .destext2 {
+        font-size: 18px;
+        width: 34vw;
+        left: 34vw;
+        margin-left: 100px;
+        min-width: 300px;
+        margin-top: 170px;
+    }}
+
+    @media (max-width: 1300px) {
+        .destext1 {
+        font-size: 18px;
+        width: 44vw;
+        left: 34vw;
+        min-width: 350px;
+        margin-top: 60px;
+    }}
+
+    .Unico_L2 {
+        position: absolute;
+        height: 300px;
+        box-shadow: 0px 0px 20px -10px #233660;
+        top: 590px;
+        right: 25vw;
+        }
+
+        @media(max-width: 1300px){
+            .Unico_L2 {
+            top: 470px;
+        }}
+
+        .Zimols {
+      font-family: 'Espoir-serif', serif;
+      font-size: 100px;
+      margin-top: 540px;
+      margin-left: 60px;
+    }
+
+    </style>
+</head>
+<body>
+ 
+    <div class="header">
+        <img class= Unico_L id="logo" src="Unico.2.png" alt="Unico.Logo">
+      </div>
+ 
+    <div class="web" id="web">
+        <div class="desrow" id="desrow">
+            <div class="designer1" id="designer1"></div>
+            <div class="designer2" id="designer2"></div>
+
+                <div class="destext1" id="destext1"> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                </p> </div> 
+                <br><br>
+                <div class="destext2" id="destext2"> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  
+                </p></div>
+                
+                <img class= Unico_L2 id="logo" src="Unico.1.png" alt="Unico.Logo">
+                <div class="Zimols" id="Zimols"> <p>Zīmola Misija</p> </div>
+
+        </div>
+            <div class="container_slid">
+            <div class="slider" id="slider">
+    </div>
+ 
+    <script>
+        const slider = document.getElementById("slider");
+        const images = [
+            "howl_1.jpg",
+            "howl_2.jpg",
+            "moriarty_1.jpg",
+            "moriarty_2.jpg",
+            "sanji_1.jpg",
+            "sanji_2.jpg",
+            "stanley_1.jpg",
+            "stanley_2.jpg",
+        ];
+ 
+        function createSlides() {
+            [...images, ...images].forEach(imageUrl => { // Duplicate images
+                let slide = document.createElement("div");
+                slide.classList.add("slide");
+                slide.style.backgroundImage = `url(${imageUrl})`;
+                slider.appendChild(slide);
+            });
+        }
+ 
+        createSlides();
+ 
+        window.addEventListener("scroll", function () {
+        const header = document.querySelector(".header");
+        if (window.scrollY > 30) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+    });
+ 
+    </script>
+ 
+</body>
+</html>
+ 
+ 
